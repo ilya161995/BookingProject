@@ -67,9 +67,7 @@ class APIClient:
         with allure.step('Updating header with authorization'):
             self.session.headers.update({"Authorization": f"Bearer {token}"})
 
-    def get_booking_by_id(self, create_booking):
-        with allure.step('Getting a booking id'):
-            booking_id = create_booking
+    def get_booking_by_id(self):
         with allure.step('Get booking by id'):
             url = f"{self.base_url}{Endpoints.BOOKING_ENDPOINT}{booking_id}"
             response = self.session.get(url)
