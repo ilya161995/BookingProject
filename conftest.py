@@ -11,7 +11,7 @@ def api_client():
     return client
 
 
-@pytest.fixture
+@pytest.fixture()
 def booking_dates():
     today = datetime.today()
     checkin_date = today + timedelta(days=10)
