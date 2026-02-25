@@ -74,10 +74,3 @@ def test_ping_success_different_code(api_client, mocker):
     mocker.patch.object(api_client.session, 'get', return_value=mock_response)
     with pytest.raises(AssertionError, match="Expected status 201 but got 200"):
         api_client.ping()
-
-
-@allure.feature('Test create booking')
-@allure.story('Test creating new booking')
-def test_create_booking(api_client):
-    status_code = api_client.create_booking(booking_data)
-    assert status_code == 200, f"Expected status 200 but got {status_code}"

@@ -9,7 +9,6 @@ import allure
 
 load_dotenv()
 
-
 class APIClient:
     def __init__(self, token=None):
         environment_str = os.getenv('ENVIRONMENT')
@@ -25,9 +24,9 @@ class APIClient:
         }
 
     def get_base_url(self, environment: Environment) -> str:
-        if environment == Environment.TEST.value:
+        if environment == Environment.TEST:
             return os.getenv('TEST_BASE_URL')
-        elif environment == Environment.PROD.value:
+        elif environment == Environment.PROD:
             return os.getenv('PROD_BASE_URL')
         else:
             raise ValueError(f"Unsupported environment value: {environment}")
